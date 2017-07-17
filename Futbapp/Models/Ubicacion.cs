@@ -11,10 +11,10 @@ namespace Futbapp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private String Codigo { get; set; }
-        private String Provincia { get; set; }
-        private String Localidad { get; set; }
-        private String Zona { get; set; }
+        public String Codigo { get; set; }
+        public String Provincia { get; set; }
+        public String Localidad { get; set; }
+        public String Zona { get; set; }
 
         public Ubicacion(String provincia, String localidad, String zona)
         {

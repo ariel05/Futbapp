@@ -11,12 +11,12 @@ namespace Futbapp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private String NombreDeUsuario { get; set; }
-        private String Nombre { get; set; }
-        private String Apellido { get; set; }
-        private String Email { get; set; }
-        private Ubicacion Ubicacion;
-        private String Password { get; set; }
+        public String NombreDeUsuario { get; set; }
+        public String Nombre { get; set; }
+        public String Apellido { get; set; }
+        public String Email { get; set; }
+        public Ubicacion Ubicacion;
+        public String Password { get; set; }
 
         public Usuario(String nombre, String apellido, String email, String nombreDeUsuario, String password, 
             String provincia, String localidad, String zona)

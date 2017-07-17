@@ -11,9 +11,9 @@ namespace Futbapp.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        private String Codigo { get; set; }
-        private String Nombre { get; set; }
-        private String Email { get; set; }
-        private String Comentario { get; set; }
+        public String Codigo { get; set; }
+        public String Nombre { get; set; }
+        public String Email { get; set; }
+        public String Comentario { get; set; }
     }
 }
