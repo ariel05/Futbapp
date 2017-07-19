@@ -15,6 +15,10 @@ namespace Futbapp.Controllers
             return View();
         }
 
+        public ActionResult Registro()
+        {
+            return View();
+        }
 
         public ActionResult CompletarRegistro()
         {
