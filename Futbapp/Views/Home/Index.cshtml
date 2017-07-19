@@ -24,39 +24,142 @@
 				<img src="~/Image/principal.jpg" class="img-rounded">
 			</div>
 			<div class="col-sm-offset-2 col-sm-6">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 			</div>
 		</div>
 	</section>
 
 	<!-------------------- ******************** -------------------->
 
-	<section class="col-sm-12 seccionContacto" id="contacto">		
-		<div class="col-sm-offset-3 col-sm-6">
-			<h3 class="col-sm-offset-3 col-sm-6">Contacto</h3>
-		</div>
-		<form method="post" action="@Url.Action("ComentarioContacto", "Home")" class="form-horizontal col-sm-offset-3 col-sm-6"  onsubmit="return validarContacto()">
-		  <div class="form-group">
-		    <div class="col-sm-12">
-		      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <div class="col-sm-12">
-		      <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su E-mail" required>
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <div class="col-sm-12">
-		      <textarea class="form-control" id="comentario" name="comentario" placeholder="Deje su comentario" required></textarea>
-		    </div>
-		  </div>
-		  <div class="form-group"> 
-		    <div class="col-sm-12">
-		      <button type="submit" class="btn btn-primary btn-large btn-block">Enviar</button>
-		    </div>
-		  </div>
-		</form>
-	</section>
+    <div class="container col-sm-12 seccionSecundaria">
+        <h2>Top equipos</h2>
+        <table class="table table-condensed">
+            <thead class="col-sm-12">
+                <tr>
+                    <th>Posición</th>
+                    <th>Nombre de equipo</th>
+                    <th>Puntos</th>
+                    <th>Lider</th>
+                    <th>GF</th>
+                    <th>GC</th>
+                    <th>V</th>
+                    <th>E</th>
+                    <th>P</th>
+                </tr>
+            </thead>
+            <tbody class="col-sm-12">
+                <tr>
+                    <th>1</th>
+                    <th>LosPibes</th>
+                    <th>120</th>
+                    <th>JavierRomero</th>
+                    <th>144</th>
+                    <th>75</th>
+                    <th>35</th>
+                    <th>9</th>
+                    <th>12</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th>ElKM36</th>
+                    <th>118</th>
+                    <th>TheRichard123</th>
+                    <th>128</th>
+                    <th>81</th>
+                    <th>29</th>
+                    <th>9</th>
+                    <th>12</th>
+              </tr>
+                <tr>
+                    <th>3</th>
+                    <th>TopRulls</th>
+                    <th>112</th>
+                    <th>RiquelmeR10</th>
+                    <th>113</th>
+                    <th>88</th>
+                    <th>29</th>
+                    <th>16</th>
+                    <th>13</th>
+             </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-------------------- ******************** -------------------->
+
+
+    <div class="container col-sm-12 seccionSecundaria">
+        <h2>Top Jugadores</h2>
+        <table class="table table-condensed">
+            <thead class="col-sm-12">
+                <tr>
+                    <th>Posición</th>
+                    <th>Nombre de equipo</th>
+                    <th>Equipo</th>
+                    <th>Partidos jugados</th>
+                    <th>G</th>
+                </tr>
+            </thead>
+            <tbody class="col-sm-12">
+                <tr>
+                    <th>1</th>
+                    <th>RiquelmeR10</th>
+                    <th>TopRulls</th>
+                    <th>58</th>
+                    <th>68</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th>OneShotOneGol</th>
+                    <th>LosPibes</th>
+                    <th>56</th>
+                    <th>66</th>
+
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <th>ElBrayan</th>
+                    <th>LosPibes</th>
+                    <th>56</th>
+                    <th>59</th>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+	<!-------------------- ******************** -------------------->
+
+    <section class="col-sm-12 seccionContacto" id="contacto">
+        <div class="col-sm-offset-3 col-sm-6">
+            <h3 class="col-sm-offset-3 col-sm-6">Déjenos su comentario</h3>
+        </div>
+        <form method="post" action="@Url.Action("ComentarioContacto", "Home")" class="form-horizontal col-sm-offset-3 col-sm-6" onsubmit="return validarContacto()">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su E-mail" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <textarea class="form-control" id="comentario" name="comentario" placeholder="Deje su comentario" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-large btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </section>
 
 
