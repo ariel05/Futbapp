@@ -163,8 +163,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Image\carrousel1.jpg" />
+    <Content Include="Image\carrousel2.jpg" />
+    <Content Include="Image\carrousel3.jpg" />
     <Content Include="Image\fondo1.jpg" />
-    <Content Include="Image\principal.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
