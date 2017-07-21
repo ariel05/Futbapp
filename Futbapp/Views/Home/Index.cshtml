@@ -1,7 +1,7 @@
-﻿@{
+﻿@using Futbapp.Models
+@{
     ViewBag.Title = "Home Page";
 }
-
 
 	<header class="col-sm-12">
 		<div class="col-sm-offset-1 col-sm-10">
@@ -72,15 +72,23 @@
             </thead>
             <tbody class="col-sm-12">
                 <tr>
-                    <th>1</th>
-                    <th>LosPibes</th>
-                    <th>120</th>
-                    <th>JavierRomero</th>
-                    <th>144</th>
-                    <th>75</th>
-                    <th>35</th>
-                    <th>9</th>
-                    <th>12</th>
+                    @for(int i =0; i < ViewBag.Equipo.Count; i++){
+                        Equipo equipo = ViewBag.Equipo[i];
+                        if(Equipo.Posicion == 1)
+                        {
+
+                        }
+                    < th > 1 </ th >
+                    < th > LosPibes </ th >
+                    < th > 120 </ th >
+                    < th > JavierRomero </ th >
+                    < th > 144 </ th >
+                    < th > 75 </ th >
+                    < th > 35 </ th >
+                    < th > 9 </ th >
+                    < th > 12 </ th >
+                    }
+
                 </tr>
                 <tr>
                     <th>2</th>
