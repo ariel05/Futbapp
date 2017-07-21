@@ -15,20 +15,12 @@ namespace Futbapp.Models
         public String Apellido { get; set; }
         public String Email { get; set; }
         public String Password { get; set; }
+        public int GolesHechos { get; set; }
+        public int PartidosJugados { get; set; }
+        public int Posicion { get; set; }
+        public Equipo equipo;
         public Ubicacion Ubicacion;
 
-        public Usuario() { }
-
-        public Usuario(String nombreDeUsuario, String nombre, String apellido, String email,  String password, 
-            String provincia, String localidad, String zona)
-        {
-            NombreDeUsuario = nombreDeUsuario;
-            Nombre = nombre;
-            Apellido = apellido;
-            Email = email;
-            Password = password;
-            Ubicacion = new Ubicacion(provincia, localidad, zona);
-        }
     }
 
 }
