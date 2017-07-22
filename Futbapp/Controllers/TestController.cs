@@ -22,7 +22,7 @@ namespace Futbapp.Controllers
                 nuevoUsuario.Email = "ariel200506@gmail.com";
                 nuevoUsuario.Password = "123456789";
 
-                futbappDB.Usuario.Add(nuevoUsuario);
+                futbappDB.Usuarios.Add(nuevoUsuario);
                 futbappDB.SaveChanges();
             }
             return "Todo Ok";

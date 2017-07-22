@@ -26,7 +26,7 @@
 			<div class="col-sm-offset-3 col-sm-6">
 				<h3 class="col-sm-offset-2 col-sm-8">Complete sus datos personales</h3>
 			</div>
-			<form class="form-horizontal col-sm-offset-3 col-sm-6"">
+			<form class="form-horizontal col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("CompletarRegistro", "Registro")">
 			  <div class="form-group">
 			    <div class="col-sm-12">
 			      <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
@@ -37,10 +37,9 @@
 			      <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
 			    </div>
 			  </div>
-			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-12">
-					<select name="OS" class="form-control provincia">
+					<select name="Provincia" class="form-control provincia">
                         <option>Seleccione la provincia</option>
 						<option>Buenos Aires</option> 
 						<option>Cordoba</option> 
@@ -50,19 +49,27 @@
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-12">
-					<select name="OS" class="form-control partidos">
+					<select name="Ciudad" class="form-control partidos">
+                        <option>La Matanza</option>
+                        <option>Moron</option>
+                        <option>Liniers</option>
 					</select>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-12">
-					<select name="OS" class="form-control zonas">
+					<select name="Zona" class="form-control zonas">
+                        <option>San Justo</option>
+                        <option>Ramos Mejia</option>
+                        <option>Casanova</option>
+                        <option>Gonzalez Catan</option>
+                        <option>Virrey Del Pino</option>
 					</select>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-2">
-					<select name="OS" class="form-control">
+					<select name="Dia" class="form-control">
 						<option>1</option> 
 						<option>2</option> 
 						<option>3</option>
@@ -96,7 +103,7 @@
 					</select>
 			    </div>
 			    <div class="col-sm-3">
-					<select name="OS" class="form-control">
+					<select name="Mes" class="form-control">
 						<option>Enero</option> 
 						<option>Febrero</option> 
 						<option>Marzo</option>
@@ -112,7 +119,7 @@
 					</select>
 			    </div>
 			    <div class="col-sm-2">
-					<select name="OS" class="form-control">
+					<select name="Anio" class="form-control">
 						<option>2005</option> 
 						<option>2004</option> 
 						<option>2003</option>
@@ -136,7 +143,7 @@
 			  </div>
 			  <div class="form-group"> 
 			    <div class="col-sm-12">
-			      <button type="submit" class="btn btn-primary btn-large btn-block">¡Registrarse!</button>
+			      <input type="submit" class="btn btn-primary btn-large btn-block" Value="¡Registrarse"/>
 			    </div>
 			  </div>
 			</form>
