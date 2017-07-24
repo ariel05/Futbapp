@@ -19,6 +19,11 @@ namespace Futbapp.Controllers
             return View();
         }
 
+        public ActionResult CompletarRegistro()
+        {
+            return View();
+        }
+
         //Creo un método que se ejecutará cuando el formulario de comentarios sea usado
         [HttpPost]
         public void ComentarioContacto(String nombre, String email, String comentario) //Obtengo por parámetros los datos del formulario usados con el atributo "name"

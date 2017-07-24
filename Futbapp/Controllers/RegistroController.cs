@@ -17,10 +17,10 @@ namespace Futbapp.Controllers
             Usuario usuario = futbappDB.Usuarios.FirstOrDefault(u => u.NombreDeUsuario == Usuario && u.Email == Email);
             if(usuario == null)
             {
-                usuario.NombreDeUsuario = Usuario;
-                usuario.Email = Email;
-                usuario.Password = Password;
-                return RedirectToAction("CompletarRegistro", "Registro");
+                usuarioRegistro.NombreDeUsuario = Usuario;
+                usuarioRegistro.Email = Email;
+                usuarioRegistro.Password = Password;
+                return RedirectToAction("CompletarRegistro", "Home");
             }
             else if(usuario.NombreDeUsuario != null)
             {
@@ -31,11 +31,6 @@ namespace Futbapp.Controllers
                 TempData["Error"] = "El email ingresado ya está siendo usado, por favor ingrese un email distinto";
             }
             return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult CompletarRegistro()
-        {
-            return View();
         }
 
         public ActionResult Completar(String Nombre, String Apellido, String Provincia, String Ciudad, 
