@@ -1,3 +1,13 @@
-﻿body{
-    text-align: center;
+﻿.posicion1{
+    background-color:lawngreen;
+}
+.posicion2{
+    background-color:yellow
+}
+.posicion3{
+    background-color: red
+}
+
+div img{
+    text-align:center;
 }

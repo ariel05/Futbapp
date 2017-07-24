@@ -2,7 +2,9 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+@section styles{
+    <link  rel="stylesheet" type="text/css" href="~/Content/index.css">
+    }
 	<header class="col-sm-12">
 		<div class="col-sm-offset-1 col-sm-10">
 			<h1 class="col-sm-offset-3 col-sm-6">Bienvenido a Futbapp</h1><br />
@@ -15,7 +17,6 @@
 
         </div>
     </header>
-
 	<!-------------------- ******************** -------------------->
 
     <div id="myCarousel" class="carousel slide col-sm-12" data-ride="carousel">
@@ -71,20 +72,20 @@
                 </tr>
             </thead>
             <tbody class="col-sm-12">
-                <tr>
-                    < th > 1 </ th >
-                    < th > LosPibes </ th >
-                    < th > 120 </ th >
-                    < th > JavierRomero </ th >
-                    < th > 144 </ th >
-                    < th > 75 </ th >
-                    < th > 35 </ th >
-                    < th > 9 </ th >
-                    < th > 12 </ th >
+                <tr class="posicion1">
+                    <th>1</th>
+                    <th>LosPibes</th>
+                    <th>120</th >
+                    <th>JavierRomero</th>
+                    <th>144</th>
+                    <th>75</th>
+                    <th>35</th>
+                    <th>9</th>
+                    <th>12</th>
                     
 
                 </tr>
-                <tr>
+                <tr class="posicion2">
                     <th>2</th>
                     <th>ElKM36</th>
                     <th>118</th>
@@ -95,7 +96,7 @@
                     <th>9</th>
                     <th>12</th>
               </tr>
-                <tr>
+                <tr class="posicion3">
                     <th>3</th>
                     <th>TopRulls</th>
                     <th>112</th>
@@ -119,21 +120,21 @@
             <thead class="col-sm-12">
                 <tr>
                     <th>Posición</th>
-                    <th>Nombre de equipo</th>
+                    <th>Nombre</th>
                     <th>Equipo</th>
                     <th>Partidos jugados</th>
                     <th>G</th>
                 </tr>
             </thead>
             <tbody class="col-sm-12">
-                <tr>
+                <tr class="posicion1">
                     <th>1</th>
                     <th>RiquelmeR10</th>
                     <th>TopRulls</th>
                     <th>58</th>
                     <th>68</th>
                 </tr>
-                <tr>
+                <tr class="posicion2">
                     <th>2</th>
                     <th>OneShotOneGol</th>
                     <th>LosPibes</th>
@@ -141,7 +142,7 @@
                     <th>66</th>
 
                 </tr>
-                <tr>
+                <tr class="posicion3">
                     <th>3</th>
                     <th>ElBrayan</th>
                     <th>LosPibes</th>
