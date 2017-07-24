@@ -12,6 +12,7 @@ namespace Futbapp.Controllers
         FutbappContext futbappDB = new FutbappContext();
         Usuario usuarioRegistro = new Usuario();
         // GET: Registro
+        [HttpPost]
         public ActionResult Registro(String Usuario, String Email, String Password)
         {
             Usuario usuario = futbappDB.Usuarios.FirstOrDefault(u => u.NombreDeUsuario == Usuario && u.Email == Email);
@@ -20,6 +21,10 @@ namespace Futbapp.Controllers
                 usuarioRegistro.NombreDeUsuario = Usuario;
                 usuarioRegistro.Email = Email;
                 usuarioRegistro.Password = Password;
+
+                futbappDB.Usuarios.Add(usuarioRegistro);
+                futbappDB.SaveChanges();
+
                 return RedirectToAction("CompletarRegistro", "Home");
             }
             else if(usuario.NombreDeUsuario != null)
@@ -32,7 +37,7 @@ namespace Futbapp.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-
+        [HttpPost]
         public ActionResult Completar(String Nombre, String Apellido, String Provincia, String Ciudad, 
             String Zona, String Dia, String Mes, String Anio)
         {
@@ -41,9 +46,6 @@ namespace Futbapp.Controllers
             usuarioRegistro.Provincia = Provincia;
             usuarioRegistro.Ciudad = Ciudad;
             usuarioRegistro.Zona = Zona;
-
-            futbappDB.Usuarios.Add(usuarioRegistro);
-            futbappDB.SaveChanges();
 
             TempData["Error"] = "¡Registro exitoso!";
             return RedirectToAction("Index", "Home");

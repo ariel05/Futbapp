@@ -7,13 +7,13 @@ namespace Futbapp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class ActualizarUsuarios : IMigrationMetadata
+    public sealed partial class ActualizarUsuario : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ActualizarUsuarios));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ActualizarUsuario));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707240022431_ActualizarUsuarios"; }
+            get { return "201707241925494_ActualizarUsuario"; }
         }
         
         string IMigrationMetadata.Source

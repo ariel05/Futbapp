@@ -18,7 +18,6 @@ namespace Futbapp.Models
         public String Provincia { get; set; }
         public String Ciudad { get; set; }
         public String Zona { get; set; }
-        public DateTime CumpleAnio { get; set; }
         public int GolesHechos { get; set; }
         public int PartidosJugados { get; set; }
         public int Posicion { get; set; }
