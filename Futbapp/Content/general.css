@@ -1,4 +1,7 @@
-﻿h1{
+﻿body{
+    font-family: 'Times New Roman', Times, serif;
+}
+h1{
     font-size: 50px;
 }
 h2{
@@ -6,4 +9,8 @@ h2{
 }
 h3{
     font-size: 25;
+}
+
+.hoverNav:hover {
+    background-color: rgba(80, 77, 79, 0.7);
 }
