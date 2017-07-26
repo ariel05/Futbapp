@@ -12,6 +12,7 @@ namespace Futbapp.Controllers
         FutbappContext futbappDB = new FutbappContext();
         Usuario usuarioRegistro = new Usuario();
         // GET: Registro
+
         [HttpPost]
         public ActionResult Registro(String Usuario, String Email, String Password)
         {
