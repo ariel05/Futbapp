@@ -11,13 +11,14 @@ namespace Futbapp.Controllers
     {
         FutbappContext futbappDB = new FutbappContext();
         // GET: Login
+        [HttpPost]
         public ActionResult Login(String Usuario, String Password)
         {
             Usuario usuario = futbappDB.Usuarios.FirstOrDefault(
                 u => u.NombreDeUsuario == Usuario && u.Password == Password);
             if(usuario != null)
             {
-                Session["LogearUsuario"] = usuario;
+                Session["UsuarioLogeado"] = usuario;
             }
             else
             {
