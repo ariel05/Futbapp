@@ -1,5 +1,6 @@
 ﻿@using Futbapp.Models
 @{
+    Usuario usuario = (Usuario)Session["UsuarioLogeado"];
     ViewBag.Title = "Home";
 }
 @section styles{
@@ -72,7 +73,7 @@
                 </tr>
             </thead>
             <tbody class="col-sm-12">
-                <tr class="posicion1">
+                <tr class="posicion_1">
                     <th>1</th>
                     <th>LosPibes</th>
                     <th>120</th >
@@ -85,7 +86,7 @@
                     
 
                 </tr>
-                <tr class="posicion2">
+                <tr class="posicion_2">
                     <th>2</th>
                     <th>ElKM36</th>
                     <th>118</th>
@@ -96,7 +97,7 @@
                     <th>9</th>
                     <th>12</th>
               </tr>
-                <tr class="posicion3">
+                <tr class="posicion_3">
                     <th>3</th>
                     <th>TopRulls</th>
                     <th>112</th>
@@ -127,28 +128,23 @@
                 </tr>
             </thead>
             <tbody class="col-sm-12">
-                <tr class="posicion1">
-                    <th>1</th>
-                    <th>RiquelmeR10</th>
-                    <th>TopRulls</th>
-                    <th>58</th>
-                    <th>68</th>
-                </tr>
-                <tr class="posicion2">
-                    <th>2</th>
-                    <th>OneShotOneGol</th>
-                    <th>LosPibes</th>
-                    <th>56</th>
-                    <th>66</th>
-
-                </tr>
-                <tr class="posicion3">
-                    <th>3</th>
-                    <th>ElBrayan</th>
-                    <th>LosPibes</th>
-                    <th>56</th>
-                    <th>59</th>
-
+                @{ int i = 1;
+                    foreach (Usuario user in ViewBag.Usuario)
+                    {
+                        <tr class="posicion_@i">
+                            <th>@i</th>
+                            <th>@user.NombreDeUsuario</th>
+                            <th>TopRulls</th>
+                            <th>@user.PartidosJugados</th>
+                            <th>@user.GolesHechos</th>
+                        </tr>
+                        if(i== 3)
+                        {
+                            break;
+                        }
+                        i++;
+                    }
+                }
                 </tr>
             </tbody>
         </table>

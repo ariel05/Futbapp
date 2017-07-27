@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Futbapp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,6 +13,11 @@ namespace Futbapp.Controllers
     {
         public ActionResult Index()
         {
+            FutbappContext FutbappDB = new FutbappContext();
+            List<Usuario> usuario = FutbappDB.Usuarios.OrderByDescending(a => a.GolesHechos).ToList();
+
+            ViewBag.Usuario = usuario;
+
             return View();
         }
 
