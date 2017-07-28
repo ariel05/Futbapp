@@ -204,7 +204,6 @@
     <Content Include="Scripts\respond.min.js" />
     <None Include="Views\Home\CompletarRegistro.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\validarRegistro.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,10 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
-    <Folder Include="Views\ObtenerPosicion\" />
-    <Folder Include="Views\Registro\" />
-    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
