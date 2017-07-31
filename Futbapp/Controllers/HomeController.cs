@@ -29,10 +29,6 @@ namespace Futbapp.Controllers
         {
             return View();
         }
-        public ActionResult MiPerfil()
-        {
-            return View();
-        }
 
         //Creo un método que se ejecutará cuando el formulario de comentarios sea usado
         [HttpPost]

@@ -13,6 +13,10 @@ namespace Futbapp.Controllers
     public class UsuarioController : Controller
     {
         private FutbappContext db = new FutbappContext();
+        public ActionResult MiPerfil()
+        {
+            return View();
+        }
 
         // GET: Usuario
         public ActionResult Index()
