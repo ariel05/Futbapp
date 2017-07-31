@@ -19,6 +19,7 @@ namespace Futbapp.Controllers
             if(usuario != null)
             {
                 Session["UsuarioLogeado"] = usuario;
+                return View();
             }
             else
             {
