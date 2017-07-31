@@ -160,15 +160,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707200530507_InitialCreate.cs" />
-    <Compile Include="Migrations\201707200530507_InitialCreate.Designer.cs">
-      <DependentUpon>201707200530507_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707241925494_ActualizarUsuario.cs" />
-    <Compile Include="Migrations\201707241925494_ActualizarUsuario.Designer.cs">
-      <DependentUpon>201707241925494_ActualizarUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comentarista.cs" />
     <Compile Include="Models\Equipo.cs" />
     <Compile Include="Models\FutbappContext.cs" />
@@ -244,14 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707200530507_InitialCreate.resx">
-      <DependentUpon>201707200530507_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707241925494_ActualizarUsuario.resx">
-      <DependentUpon>201707241925494_ActualizarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
