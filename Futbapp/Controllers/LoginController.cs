@@ -19,13 +19,16 @@ namespace Futbapp.Controllers
             if(usuario != null)
             {
                 Session["UsuarioLogeado"] = usuario;
-                return View();
             }
             else
             {
                 TempData["Error"] = "Usuario o contraceña incorrecto";
             }
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult MiPerfil()
+        {
+            return View();
         }
 
         public ActionResult Logout()
