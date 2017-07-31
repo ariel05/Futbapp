@@ -3,7 +3,6 @@ var localidadLaMatanza = ["Ramos Mejía", "San Justo", "Lomas del Mirador", "Cas
 
 $(document).on('ready', function () {
 
-	var provincia = $(".provincia").val();
 	
 
 	function validarRegistro(){
@@ -11,7 +10,7 @@ $(document).on('ready', function () {
 		var password1 = $("#password").val();
 		var password2 = $("#password2").val();
 
-		if(password1.lenght < 4){
+		if(password1.length < 4){
 			alert("La contraceña debe tener al menos 4 caracteres");
 			return false;
 		}
@@ -23,13 +22,17 @@ $(document).on('ready', function () {
 			return true;
 	}
 
-	for(var i=0; i < partidosBsAs.lenght; i++){
+	$('#formRegistro').submit(function () {
+	    validarRegistro();
+	});
+    /*
+	for(var i=0; i < partidosBsAs.length; i++){
 		$(".partidos").append('<option>' + partidosBsAs[i] +'</option>'
 			);
 	}
 
-	for(var i=0; i< localidadLaMatanza.lenght; i++){
+	for(var i=0; i< localidadLaMatanza.length; i++){
 		$(".zonas").append('<option>' + localidadLaMatanza[i] + '</option>'
 			);
-	}
+	}*/
 });
