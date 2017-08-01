@@ -15,7 +15,8 @@ namespace Futbapp.Controllers
         private FutbappContext db = new FutbappContext();
         public ActionResult MiPerfil()
         {
-            return View();
+            Usuario usuario = (Usuario)Session["UsuarioLogeado"];
+            return View(usuario);
         }
 
         // GET: Usuario

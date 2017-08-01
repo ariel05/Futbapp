@@ -54,9 +54,9 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@(usuario.NombreDeUsuario)<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="@Url.Action("MiPerfil","Usuario")">Mi Perfil</a></li>
-                                    <li><a href="#">Crear Equipo</a></li>
-                                    <li><a href="#">Establecer Partido</a></li>
-                                    <li><a href="#">Buscar Partido</a></li>
+                                    <li><a href=""  data-toggle="modal" data-target="#myEquipoModal">Crear Equipo</a></li>
+                                    <li><a href="@Url.Action("CrearPartido","Usuario")">Establecer Partido</a></li>
+                                    <li><a href="@Url.Action("ListaDePartidos","Usuario")">Buscar Partido</a></li>
                                     <li><a href="@Url.Action("Logout", "Login")">Logout</a></li>
                                 </ul>
                             }
@@ -95,6 +95,30 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
         </form>
+
+    <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Crear","Equipo")">
+        <div class="modal fade" tabindex="-1" role="dialog" id="myEquipoModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">¡Crear Equipo!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" name="Nombre" placeholder="Ingrese un nombre de Equipo (Solo alfanumérico)" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                        <input type="submit" class="btn btn-primary" value="Crear">
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </form>
 
     @RenderBody()
 

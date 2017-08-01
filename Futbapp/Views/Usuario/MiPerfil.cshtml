@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Futbapp.Models.Usuario
+
+@{
     ViewBag.Title = "MiPerfil";
 }
 
@@ -8,13 +10,14 @@
     </div>
     <section class="col-sm-4">
         <div><strong>Nombre</strong></div>
-        <div>Roman</div>
+        <div>@Model.Nombre</div>
         <div><strong>Apellido</strong></div>
-        <div>Sotto</div>
+        <div>@Model.Apellido</div>
         <div><strong>Email</strong></div>
-        <div>SottoR@gmail.com</div>
+        <div>@Model.Email</div>
+        <div><strong>Equipo</strong></div>
         <div><strong>Zona</strong></div>
-        <div>San Justo, La Matanza, Buenos Aires</div>
+        <div>@Model.Zona, @Model.Ciudad, @Model.Provincia</div>
     </section>
     <section class="col-sm-8">
         <table class="table table-condensed">
