@@ -7,13 +7,12 @@ using System.Web;
 
 namespace Futbapp.Models
 {
-    public class Comentarista
+    public class Partido
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public String Codigo { get; set; }
-        public String Nombre { get; set; }
-        public String Email { get; set; }
-        public String Comentario { get; set; }
+        public String Id { get; set; }
+        public DateTime Fecha { get; set; }
+        public List<Equipo> EquiposQueCompiten { get; set; }
     }
 }

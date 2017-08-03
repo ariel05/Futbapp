@@ -10,15 +10,15 @@ namespace Futbapp.Models
     {
         [Key]
         public String Nombre { get; set; }
-        public int posicion { get; set; }
+        public int Posicion { get; set; }
         public int Puntos { get; set; }
         public int GF { get; set; }
         public int GC { get; set; }
         public int Victorias { get; set; }
         public int Empates { get; set; }
         public int Perdidas { get; set; }
+        public List<Partido> Partidos { get; set; }
         public List<Usuario> Miembros { get; set; }
-        public Usuario Lider { get; set; }
 
     }
 }
