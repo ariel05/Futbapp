@@ -1,4 +1,5 @@
 ﻿@model Futbapp.Models.Usuario
+@using Futbapp.Models
 
 @{
     ViewBag.Title = "MiPerfil";
@@ -15,10 +16,48 @@
         <div>@Model.Apellido</div>
         <div><strong>Email</strong></div>
         <div>@Model.Email</div>
-        <div><strong>Equipo</strong></div>
-        <div>@Model.Equipo</div>
         <div><strong>Zona</strong></div>
-        <div>@Model.Ubicacion</div>
+        <div>@{ Ubicacion ubicacion = ViewBag.Ubicacion;
+
+            @ubicacion.Zona;
+            @ubicacion.Ciudad;
+            } 
+        </div>
+    </section>
+    <section class="col-sm-8">
+        <h2>Equipo: @{
+            Equipo equipo = ViewBag.Equipo;
+
+            @equipo.NombreDeEquipo
+        }</h2>
+        <table class="table table-condensed">
+            @{ 
+            <thead class="col-sm-12">
+                <tr>
+                    <th>Lider</th>
+                    <th>Posicion</th>
+                    <th>Puntos</th>
+                    <th>GF</th>
+                    <th>GC</th>
+                    <th>Victorias</th>
+                    <th>Empates</th>
+                    <th>Derrotas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>@equipo.NombreDeLider</th>
+                    <th>@equipo.Posicion</th>
+                    <th>@equipo.Puntos</th>
+                    <th>@equipo.GF</th>
+                    <th>@equipo.GC</th>
+                    <th>@equipo.Victorias</th>
+                    <th>@equipo.Empates</th>
+                    <th>@equipo.Perdidas</th>
+                </tr>
+            </tbody>
+            }
+        </table>
     </section>
     <section class="col-sm-8">
         <table class="table table-condensed">
@@ -60,6 +99,6 @@
                     <th>Detalles</th>
                 </tr>
             </tbody>
-</table>
-</section>
+        </table>
+    </section>
 </div>

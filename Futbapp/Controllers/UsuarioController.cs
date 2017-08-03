@@ -12,17 +12,22 @@ namespace Futbapp.Controllers
 {
     public class UsuarioController : Controller
     {
-        private FutbappContext db = new FutbappContext();
+        private FutbappContext FutbappDB = new FutbappContext();
         public ActionResult MiPerfil()
         {
             Usuario usuario = (Usuario)Session["UsuarioLogeado"];
+            Ubicacion ubicacion = FutbappDB.Ubicaciones.FirstOrDefault(u => u.Id == usuario.Ubicacion.Id);
+            Equipo equipo = FutbappDB.Equipos.FirstOrDefault(u => u.NombreDeEquipo == usuario.Equipo.NombreDeEquipo);
+            ViewBag.Ubicacion = ubicacion;
+            ViewBag.Equipo = equipo;
+
             return View(usuario);
         }
 
         // GET: Usuario
         public ActionResult Index()
         {
-            return View(db.Usuarios.ToList());
+            return View(FutbappDB.Usuarios.ToList());
         }
     }
 }
