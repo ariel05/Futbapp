@@ -1,6 +1,7 @@
 ﻿using Futbapp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -41,29 +42,35 @@ namespace Futbapp.Controllers
             return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        public ActionResult Completar(String Nombre, String Apellido, String Provincia, String Ciudad, 
+        public ActionResult Completar(String Nombre, String Apellido, String Provincia, String Ciudad,
             String Zona)
         {
             Usuario usuario = (Usuario)Session["UsuarioRegistrandose"];
             Ubicacion ubicacion = new Ubicacion();
 
+            ///summary
+            ///Primero modifico los atributos del usuario
+            ///
             usuario.Nombre = Nombre;
             usuario.Apellido = Apellido;
-
-
-            ubicacion.Provincia = Provincia;
-            ubicacion.Ciudad = Ciudad;
-            ubicacion.Zona = Zona;
-            ubicacion.Id = "1";
-
-            futbappDB.Ubicaciones.Add(ubicacion);
-
             futbappDB.Usuarios.Attach(usuario);
             var entry = futbappDB.Entry(usuario);
             usuario.Nombre = Nombre;
             usuario.Apellido = Apellido;
             entry.Property(u => u.Nombre).IsModified = true;
             entry.Property(u => u.Apellido).IsModified = true;
+
+            ///summary
+            ///Busco el id de la ubicacion que eligió el usuario y se la asigno al usuario
+            ///
+
+            futbappDB.Entry(usuario).State = EntityState.Modified;
+
+            ubicacion = futbappDB.Ubicaciones.FirstOrDefault(u => u.Provincia == Provincia &&
+            u.Ciudad == Ciudad && u.Zona == Zona);
+
+            var userUbicacion = futbappDB.Set<Ubicacion>().Include(p => p.Usuario).FirstOrDefault(u => u.Id == ubicacion.Id);
+            userUbicacion.Usuario.Add(usuario);
             futbappDB.SaveChanges();
 
             Session.Clear();

@@ -16,25 +16,42 @@ namespace Futbapp.Controllers
         [HttpPost]
         public ActionResult Crear(String Nombre)
         {
-            
+            Usuario usuario = (Usuario)Session["UsuarioLogeado"];
+
             Equipo equipos = futbappDB.Equipos.FirstOrDefault(u => u.NombreDeEquipo == Nombre);
             if(equipos == null)
             {
                 Equipo equipo = new Equipo();
-                Usuario user = new Usuario();
-                Usuario usuario = (Usuario)Session["UsuarioLogeado"];
 
                 equipo.NombreDeEquipo = Nombre;
                 equipo.NombreDeLider = usuario.NombreDeUsuario;
 
-                futbappDB.Usuarios.Attach(usuario);
-                var entry = futbappDB.Entry(usuario);
-                usuario.Equipo = equipo;
-                entry.Property(u => u.Equipo).IsModified = true;
                 futbappDB.Equipos.Add(equipo);
                 futbappDB.SaveChanges();
+
+                Equipo team = futbappDB.Equipos.FirstOrDefault(u => u.NombreDeEquipo == Nombre);
+
+                FirstCreateTeam(team, usuario);
             }
+            else
+            {
+                TempData["Error"] = "¡El nombre de equipo ya existe, pruebe con otro nombre!";
+            }
+
             return RedirectToAction("MiPerfil", "Usuario");
+        }
+
+        public void FirstCreateTeam(Equipo equipo, Usuario usuario)
+        {
+
+            futbappDB.Entry(usuario).State = EntityState.Modified;
+
+
+            var userEquipo = futbappDB.Set<Equipo>().Include(p => p.Usuario).FirstOrDefault(
+                u => u.NombreDeEquipo == equipo.NombreDeEquipo);
+            userEquipo.Usuario.Add(usuario);
+
+            futbappDB.SaveChanges();
         }
 
         public ActionResult AgregarMiembros(String nombreDeUsuario)

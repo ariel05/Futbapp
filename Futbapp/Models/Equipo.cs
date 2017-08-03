@@ -19,6 +19,7 @@ namespace Futbapp.Models
         public int Empates { get; set; }
         public int Perdidas { get; set; }
         public List<Partido> Partidos { get; set; }
+        public List<Usuario> Usuario { get; set; }
 
     }
 }

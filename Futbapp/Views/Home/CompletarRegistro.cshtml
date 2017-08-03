@@ -1,4 +1,5 @@
-﻿@{ 
+﻿@using Futbapp.Models
+@{ 
     ViewBag.tittle = "ConpletarRegistro";
 }
 
@@ -26,127 +27,150 @@
 			<div class="col-sm-offset-3 col-sm-6">
 				<h3 class="col-sm-offset-2 col-sm-8">Complete sus datos personales</h3>
 			</div>
-			<form class="form-horizontal col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Completar", "Registro")">
-			  <div class="form-group">
-			    <div class="col-sm-12">
-			      <input type="text" class="form-control" name="Nombre" id="nombre" placeholder="Nombre" required>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-12">
-			      <input type="text" class="form-control" name="Apellido" id="apellido" placeholder="Apellido" required>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-12">
-					<select name="Provincia" class="form-control provincia">
-                        <option>Seleccione la provincia</option>
-						<option>Buenos Aires</option> 
-						<option>Cordoba</option> 
-						<option>Santa Fe</option>
-					</select>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-12">
-					<select name="Ciudad" class="form-control partidos">
-                        <option>La Matanza</option>
-                        <option>Moron</option>
-                        <option>Liniers</option>
-					</select>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-12">
-					<select name="Zona" class="form-control zonas">
-                        <option>San Justo</option>
-                        <option>Ramos Mejia</option>
-                        <option>Casanova</option>
-                        <option>Gonzalez Catan</option>
-                        <option>Virrey Del Pino</option>
-					</select>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-2">
-					<select name="Dia" class="form-control">
-						<option>1</option> 
-						<option>2</option> 
-						<option>3</option>
-						<option>4</option> 
-						<option>5</option> 
-						<option>6</option> 
-						<option>7</option> 
-						<option>8</option> 
-						<option>9</option>
-						<option>10</option> 
-						<option>11</option> 
-						<option>12</option> 
-						<option>13</option>
-						<option>14</option> 
-						<option>15</option> 
-						<option>16</option> 
-						<option>17</option> 
-						<option>18</option> 
-						<option>19</option>
-						<option>20</option> 
-						<option>21</option> 
-						<option>22</option> 
-						<option>23</option>
-						<option>24</option> 
-						<option>25</option> 
-						<option>26</option> 
-						<option>27</option> 
-						<option>28</option> 
-						<option>29</option>
-						<option>30</option>
-					</select>
-			    </div>
-			    <div class="col-sm-3">
-					<select name="Mes" class="form-control">
-						<option>Enero</option> 
-						<option>Febrero</option> 
-						<option>Marzo</option>
-						<option>Abril</option> 
-						<option>Mayo</option> 
-						<option>Junio</option> 
-						<option>Julio</option> 
-						<option>Agosto</option> 
-						<option>Septiembre</option>
-						<option>Octubre</option> 
-						<option>Noviembre</option> 
-						<option>Diciembre</option> 
-					</select>
-			    </div>
-			    <div class="col-sm-2">
-					<select name="Anio" class="form-control">
-						<option>2005</option> 
-						<option>2004</option> 
-						<option>2003</option>
-						<option>2002</option> 
-						<option>2001</option> 
-						<option>2000</option> 
-						<option>1999</option> 
-						<option>1998</option> 
-						<option>1997</option>
-						<option>1996</option> 
-						<option>1995</option> 
-						<option>1994</option> 
-						<option>1993</option> 
-						<option>1992</option> 
-						<option>1991</option>
-						<option>1990</option> 
-						<option>1989</option> 
-						<option>1988</option> 
-					</select>
-			    </div>
-			  </div>
-			  <div class="form-group"> 
-			    <div class="col-sm-12">
-			      <input type="submit" class="btn btn-primary btn-large btn-block" Value="¡Registrarse"/>
-			    </div>
-			  </div>
-			</form>
+            <form class="form-horizontal col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Completar", "Registro")">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" name="Nombre" id="nombre" placeholder="Nombre" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" name="Apellido" id="apellido" placeholder="Apellido" required>
+                    </div>
+                </div>
+                @{
+                    string pcia = "a", cdad = "a", zona = "a";
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <select name="Provincia" class="form-control provincia">
+                                    <option>Seleccione la provincia</option>
+
+                                    @foreach (Ubicacion Ubicacion in ViewBag.Ubicacion)
+                                    {
+                                        if (Ubicacion.Provincia != pcia)
+                                        {
+                                        <option>@Ubicacion.Provincia</option>
+                                        pcia = Ubicacion.Provincia;
+                                        }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <select name="Ciudad" class="form-control partidos">
+
+                                    @foreach (Ubicacion Ubicacion in ViewBag.Ubicacion)
+                                    {
+                                        if (Ubicacion.Ciudad != cdad)
+                                        {
+                                            <option>@Ubicacion.Ciudad</option>
+                                            cdad = Ubicacion.Ciudad;
+                                        }
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <select name="Zona" class="form-control zonas">
+
+                                    @foreach (Ubicacion Ubicacion in ViewBag.Ubicacion)
+                                    {
+                                        if (Ubicacion.Zona != zona)
+                                        {
+                                            <option>@Ubicacion.Zona</option>
+                                            zona = Ubicacion.Zona;
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                }
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <select name="Dia" class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <select name="Mes" class="form-control">
+                            <option>Enero</option>
+                            <option>Febrero</option>
+                            <option>Marzo</option>
+                            <option>Abril</option>
+                            <option>Mayo</option>
+                            <option>Junio</option>
+                            <option>Julio</option>
+                            <option>Agosto</option>
+                            <option>Septiembre</option>
+                            <option>Octubre</option>
+                            <option>Noviembre</option>
+                            <option>Diciembre</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select name="Anio" class="form-control">
+                            <option>2005</option>
+                            <option>2004</option>
+                            <option>2003</option>
+                            <option>2002</option>
+                            <option>2001</option>
+                            <option>2000</option>
+                            <option>1999</option>
+                            <option>1998</option>
+                            <option>1997</option>
+                            <option>1996</option>
+                            <option>1995</option>
+                            <option>1994</option>
+                            <option>1993</option>
+                            <option>1992</option>
+                            <option>1991</option>
+                            <option>1990</option>
+                            <option>1989</option>
+                            <option>1988</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="submit" class="btn btn-primary btn-large btn-block" Value="¡Registrarse" />
+                    </div>
+                </div>
+            </form>
+
 		</section>
 	</section>
 @section scripts{

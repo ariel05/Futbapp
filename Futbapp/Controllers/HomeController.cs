@@ -27,6 +27,11 @@ namespace Futbapp.Controllers
 
         public ActionResult CompletarRegistro()
         {
+            FutbappContext FutbappDB = new FutbappContext();
+            List<Ubicacion> ubicacion = FutbappDB.Ubicaciones.OrderBy(a => a.Zona).ToList();
+
+            ViewBag.Ubicacion = ubicacion;
+
             return View();
         }
 

@@ -10,11 +10,12 @@ namespace Futbapp.Models
     public class Ubicacion
     {
         [Key]
-        [Column (Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public String Id { get; set; }
         public String Provincia { get; set; }
         public String Ciudad { get; set; }
         public String Zona { get; set; }
+        public List<Usuario> Usuario { get; set; }
+        public List<Partido> Partido { get; set; }
     }
 }
