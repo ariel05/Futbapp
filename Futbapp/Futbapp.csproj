@@ -157,12 +157,14 @@
     <Compile Include="Controllers\RegistroController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\UsuarioEntityFrameworkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Comentarista.cs" />
     <Compile Include="Models\Equipo.cs" />
     <Compile Include="Models\FutbappContext.cs" />
+    <Compile Include="Models\Partido.cs" />
+    <Compile Include="Models\Ubicacion.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -209,12 +211,12 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Registro.cshtml" />
-    <Content Include="Views\Usuario\Create.cshtml" />
-    <Content Include="Views\Usuario\Delete.cshtml" />
-    <Content Include="Views\Usuario\Details.cshtml" />
-    <Content Include="Views\Usuario\Edit.cshtml" />
-    <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\MiPerfil.cshtml" />
+    <Content Include="Views\UsuarioEntityFramework\Create.cshtml" />
+    <Content Include="Views\UsuarioEntityFramework\Delete.cshtml" />
+    <Content Include="Views\UsuarioEntityFramework\Details.cshtml" />
+    <Content Include="Views\UsuarioEntityFramework\Edit.cshtml" />
+    <Content Include="Views\UsuarioEntityFramework\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

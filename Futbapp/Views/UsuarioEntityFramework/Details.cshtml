@@ -1,0 +1,98 @@
+﻿@model Futbapp.Models.Usuario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zona)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zona)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GolesHechos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GolesHechos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PartidosJugados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PartidosJugados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posicion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NombreDeUsuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
