@@ -24,4 +24,5 @@ namespace Futbapp.Controllers
         {
             return View(db.Usuarios.ToList());
         }
+    }
 }

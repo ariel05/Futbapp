@@ -9,7 +9,8 @@ namespace Futbapp.Models
     public class Equipo
     {
         [Key]
-        public String Nombre { get; set; }
+        public String NombreDeEquipo { get; set; }
+        public String NombreDeLider { get; set; }
         public int Posicion { get; set; }
         public int Puntos { get; set; }
         public int GF { get; set; }
@@ -18,7 +19,6 @@ namespace Futbapp.Models
         public int Empates { get; set; }
         public int Perdidas { get; set; }
         public List<Partido> Partidos { get; set; }
-        public List<Usuario> Miembros { get; set; }
 
     }
 }

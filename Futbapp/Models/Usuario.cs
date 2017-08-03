@@ -10,6 +10,7 @@ namespace Futbapp.Models
     public class Usuario
     {
         [Key]
+        [Column (Order = 1)]
         public String NombreDeUsuario { get; set; }
         public String Nombre { get; set; }
         public String Apellido { get; set; }
@@ -18,7 +19,8 @@ namespace Futbapp.Models
         public int GolesHechos { get; set; }
         public int PartidosJugados { get; set; }
         public int Posicion { get; set; }
-
+        public Ubicacion Ubicacion { get; set; }
+        public Equipo Equipo { get; set; }
     }
 
 }

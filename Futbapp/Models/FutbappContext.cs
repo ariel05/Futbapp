@@ -18,6 +18,8 @@ namespace Futbapp.Models
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Equipo> Equipos { get; set; }
+        public DbSet<Partido> Partidos { get; set; }
+        public DbSet<Ubicacion> Ubicaciones { get; set; }
 
     }
 }

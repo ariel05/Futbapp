@@ -23,6 +23,8 @@ namespace Futbapp.Controllers
                 usuarioRegistro.Email = Email;
                 usuarioRegistro.Password = Password;
 
+                Session["UsuarioRegistrandose"] = usuarioRegistro;
+
                 futbappDB.Usuarios.Add(usuarioRegistro);
                 futbappDB.SaveChanges();
 
@@ -40,13 +42,31 @@ namespace Futbapp.Controllers
         }
         [HttpPost]
         public ActionResult Completar(String Nombre, String Apellido, String Provincia, String Ciudad, 
-            String Zona, String Dia, String Mes, String Anio)
+            String Zona)
         {
-            usuarioRegistro.Nombre = Nombre;
-            usuarioRegistro.Apellido = Apellido;
-            usuarioRegistro.Provincia = Provincia;
-            usuarioRegistro.Ciudad = Ciudad;
-            usuarioRegistro.Zona = Zona;
+            Usuario usuario = (Usuario)Session["UsuarioRegistrandose"];
+            Ubicacion ubicacion = new Ubicacion();
+
+            usuario.Nombre = Nombre;
+            usuario.Apellido = Apellido;
+
+
+            ubicacion.Provincia = Provincia;
+            ubicacion.Ciudad = Ciudad;
+            ubicacion.Zona = Zona;
+            ubicacion.Id = "1";
+
+            futbappDB.Ubicaciones.Add(ubicacion);
+
+            futbappDB.Usuarios.Attach(usuario);
+            var entry = futbappDB.Entry(usuario);
+            usuario.Nombre = Nombre;
+            usuario.Apellido = Apellido;
+            entry.Property(u => u.Nombre).IsModified = true;
+            entry.Property(u => u.Apellido).IsModified = true;
+            futbappDB.SaveChanges();
+
+            Session.Clear();
 
             TempData["Error"] = "¡Registro exitoso!";
             return RedirectToAction("Index", "Home");

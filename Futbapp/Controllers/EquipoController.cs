@@ -10,24 +10,28 @@ namespace Futbapp.Controllers
 {
     public class EquipoController : Controller
     {
+        
         FutbappContext futbappDB = new FutbappContext();
         // GET: Equipo
         [HttpPost]
         public ActionResult Crear(String Nombre)
         {
-           
-            Equipo equipo = futbappDB.Equipos.FirstOrDefault(u => u.Nombre == Nombre);
-            if(equipo == null)
+            
+            Equipo equipos = futbappDB.Equipos.FirstOrDefault(u => u.NombreDeEquipo == Nombre);
+            if(equipos == null)
             {
-                Equipo equipos = new Equipo();
+                Equipo equipo = new Equipo();
+                Usuario user = new Usuario();
                 Usuario usuario = (Usuario)Session["UsuarioLogeado"];
-                Usuario miUser = new Usuario();
-                miUser = futbappDB.Usuarios.Find(usuario.NombreDeUsuario);
-                equipos.Nombre = Nombre;
-                equipos.Lider = miUser;
 
-                miUser.equipo = equipos;
-                futbappDB.Equipos.Add(equipos);
+                equipo.NombreDeEquipo = Nombre;
+                equipo.NombreDeLider = usuario.NombreDeUsuario;
+
+                futbappDB.Usuarios.Attach(usuario);
+                var entry = futbappDB.Entry(usuario);
+                usuario.Equipo = equipo;
+                entry.Property(u => u.Equipo).IsModified = true;
+                futbappDB.Equipos.Add(equipo);
                 futbappDB.SaveChanges();
             }
             return RedirectToAction("MiPerfil", "Usuario");
@@ -37,12 +41,13 @@ namespace Futbapp.Controllers
         {
             Usuario miembro = futbappDB.Usuarios.FirstOrDefault(u => u.NombreDeUsuario == nombreDeUsuario);
                 Usuario usuario = (Usuario) Session["UsuarioLogeado"];
-                Equipo equipo = futbappDB.Equipos.FirstOrDefault(u => u.Lider == usuario);
-
-                equipo.Miembros.Add(miembro);
-            if (miembro != null && equipo.Miembros.Count < 7)
+                Equipo equipo = futbappDB.Equipos.FirstOrDefault(u => u.NombreDeLider == usuario.NombreDeUsuario);
+            if (miembro != null)
             {
-                futbappDB.Equipos.Add(equipo);
+                futbappDB.Usuarios.Attach(miembro);
+                var entry = futbappDB.Entry(miembro);
+                miembro.Equipo = equipo;
+                entry.Property(u => u.Equipo).IsModified = true;
                 futbappDB.SaveChanges();
                 return RedirectToAction("MiPerfil", "Usuario");
             }

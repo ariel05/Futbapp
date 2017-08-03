@@ -222,7 +222,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Equipo\" />
     <Folder Include="Views\Partidos\" />
-    <Folder Include="Views\PerfilDeUsuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

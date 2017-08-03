@@ -13,6 +13,7 @@ namespace Futbapp.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public String Id { get; set; }
         public DateTime Fecha { get; set; }
-        public List<Equipo> EquiposQueCompiten { get; set; }
+        public List<Equipo> Equipos { get; set; }
+        public Ubicacion Ubicacion { get; set; }
     }
 }
