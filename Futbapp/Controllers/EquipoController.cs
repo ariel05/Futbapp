@@ -70,5 +70,12 @@ namespace Futbapp.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult VerMiEquipo(Usuario usuario)
+        {
+
+
+            return null;
+        }
     }
 }

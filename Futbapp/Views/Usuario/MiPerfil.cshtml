@@ -17,18 +17,17 @@
         <div><strong>Email</strong></div>
         <div>@Model.Email</div>
         <div><strong>Zona</strong></div>
-        <div>@{ Ubicacion ubicacion = ViewBag.Ubicacion;
-
-            @ubicacion.Zona;
-            @ubicacion.Ciudad;
-            } 
+        <div>
         </div>
     </section>
     <section class="col-sm-8">
         <h2>Equipo: @{
-            Equipo equipo = ViewBag.Equipo;
+            foreach(Usuario user in ViewBag.Usuario)
+            {
+                @user.Nombre;
+            }
 
-            @equipo.NombreDeEquipo
+
         }</h2>
         <table class="table table-condensed">
             @{ 
@@ -46,16 +45,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>@equipo.NombreDeLider</th>
-                    <th>@equipo.Posicion</th>
-                    <th>@equipo.Puntos</th>
-                    <th>@equipo.GF</th>
-                    <th>@equipo.GC</th>
-                    <th>@equipo.Victorias</th>
-                    <th>@equipo.Empates</th>
-                    <th>@equipo.Perdidas</th>
                 </tr>
             </tbody>
+            <a href="@Url.Action("VerMiEquipo","Equipo", Model)">Ver equipo</a> 
             }
         </table>
     </section>

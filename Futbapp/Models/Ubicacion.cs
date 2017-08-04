@@ -7,6 +7,7 @@ using System.Web;
 
 namespace Futbapp.Models
 {
+    [Table("Ubicacion")]
     public class Ubicacion
     {
         [Key]
