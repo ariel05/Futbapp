@@ -24,7 +24,10 @@
         <h2>Equipo: @{
             foreach(Usuario user in ViewBag.Usuario)
             {
-                @user.Nombre;
+                if(user.NombreDeUsuario == "ariel05")
+                {
+                    @user.Equipo;
+                }
             }
 
 

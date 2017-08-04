@@ -17,6 +17,6 @@ namespace Futbapp.Models
         public String Ciudad { get; set; }
         public String Zona { get; set; }
         public List<Usuario> Usuario { get; set; }
-        public List<Partido> Partido { get; set; }
+        public List<Sala> Sala { get; set; }
     }
 }

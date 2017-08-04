@@ -20,6 +20,7 @@ namespace Futbapp.Controllers
 
             List<Usuario> user = FutbappDB.Usuarios.Include(u => u.Equipo).ToList();
 
+            ViewBag.Usuario = user;
 
             return View(usuario);
         }

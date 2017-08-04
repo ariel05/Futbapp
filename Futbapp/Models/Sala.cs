@@ -7,14 +7,13 @@ using System.Web;
 
 namespace Futbapp.Models
 {
-    [Table("Partido")]
-    public class Partido
+    [Table("Sala")]
+    public class Sala
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public String Id { get; set; }
-        public DateTime Fecha { get; set; }
-        public List<Equipo> Equipos { get; set; }
-        public Sala Sala { get; set; }
+        public String Nombre { get; set; }
+        public Ubicacion Ubicacion { get; set; }
+        public List<Partido> Partido { get; set; }
     }
 }
