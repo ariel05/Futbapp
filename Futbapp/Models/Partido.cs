@@ -14,7 +14,9 @@ namespace Futbapp.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public String Id { get; set; }
         public DateTime Fecha { get; set; }
+        public string SalaID { get; set; }
         public List<Equipo> Equipos { get; set; }
+        [ForeignKey("SalaID")]
         public Sala Sala { get; set; }
     }
 }
