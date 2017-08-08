@@ -40,8 +40,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        @{
-                            if (usuario == null)
+                        @{if (usuario == null)
                             {
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entrar<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -55,6 +54,19 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="@Url.Action("MiPerfil","Usuario")">Mi Perfil</a></li>
                                     <li><a href=""  data-toggle="modal" data-target="#myEquipoModal">Crear Equipo</a></li>
+                                    @{
+                                        if (usuario != null)
+                                        {
+                                            FutbappContext FutbappDB = new FutbappContext();
+                                            Equipo equipo = FutbappDB.Equipos.FirstOrDefault(e => e.NombreDeLider == usuario.NombreDeUsuario);
+
+                                            if (equipo != null)
+                                            {
+                                                <li><a href="" data-toggle="modal" data-target="#myCompaModal">Agegar Usuario Al equipo</a></li>
+                                            }
+                                         }
+
+                                        }
                                     <li><a href="@Url.Action("CrearPartido","Usuario")">Establecer Partido</a></li>
                                     <li><a href="@Url.Action("ListaDePartidos","Usuario")">Buscar Partido</a></li>
                                     <li><a href="@Url.Action("Logout", "Login")">Logout</a></li>
@@ -120,6 +132,29 @@
         </div><!-- /.modal -->
     </form>
 
+    <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("AgregarMiembros","Equipo")">
+        <div class="modal fade" tabindex="-1" role="dialog" id="myCompaModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">¡Crear Equipo!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" name="NombreDeUsuario" placeholder="Ingrese nombre de Usuario" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                        <input type="submit" class="btn btn-primary" value="Agregar">
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </form>
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")

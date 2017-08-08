@@ -54,17 +54,23 @@ namespace Futbapp.Controllers
             futbappDB.SaveChanges();
         }
 
-        public ActionResult AgregarMiembros(String nombreDeUsuario)
+        public ActionResult AgregarMiembros(String NombreDeUsuario)
         {
-            Usuario miembro = futbappDB.Usuarios.FirstOrDefault(u => u.NombreDeUsuario == nombreDeUsuario);
+            Usuario miembro = futbappDB.Usuarios.FirstOrDefault(u => u.NombreDeUsuario == NombreDeUsuario);
                 Usuario usuario = (Usuario) Session["UsuarioLogeado"];
                 Equipo equipo = futbappDB.Equipos.FirstOrDefault(u => u.NombreDeLider == usuario.NombreDeUsuario);
             if (miembro != null)
             {
-                futbappDB.Usuarios.Attach(miembro);
+                /*futbappDB.Usuarios.Attach(miembro);
                 var entry = futbappDB.Entry(miembro);
-                miembro.Equipo = equipo;
-                entry.Property(u => u.Equipo).IsModified = true;
+                miembro.EquipoID = equipo.NombreDeEquipo;
+                entry.Property(u => u.Equipo).IsModified = true;*/
+
+                futbappDB.Usuarios.Attach(miembro);
+                var actualizar = futbappDB.Entry(miembro);
+                miembro.EquipoID = equipo.NombreDeEquipo;
+                actualizar.Property(a => a.EquipoID).IsModified = true;
+
                 futbappDB.SaveChanges();
                 return RedirectToAction("MiPerfil", "Usuario");
             }

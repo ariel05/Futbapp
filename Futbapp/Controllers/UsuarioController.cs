@@ -16,9 +16,10 @@ namespace Futbapp.Controllers
         public ActionResult MiPerfil()
         {
             Usuario usuario = (Usuario)Session["UsuarioLogeado"];
-            Equipo equipo = FutbappDB.Usuarios.First(e => e.NombreDeUsuario == usuario.NombreDeUsuario).Equipo;
+            Equipo equipo = FutbappDB.Equipos.FirstOrDefault(u => u.NombreDeEquipo == usuario.EquipoID);
 
-            List<Usuario> user = FutbappDB.Usuarios.Include(u => u.Equipo).ToList();
+//            List<Usuario> user = FutbappDB.Usuarios.Include(u => u.Equipo.NombreDeEquipo == usuario.EquipoID).ToList();
+            List<Usuario> user = FutbappDB.Usuarios.OrderBy(a => a.Apellido).Where(a => a.EquipoID == equipo.NombreDeEquipo).ToList();
 
             ViewBag.Usuario = user;
 
