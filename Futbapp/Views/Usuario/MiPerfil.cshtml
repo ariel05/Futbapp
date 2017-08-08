@@ -17,23 +17,19 @@
         <div><strong>Email</strong></div>
         <div>@Model.Email</div>
         <div><strong>Zona</strong></div>
+    @{
+        Ubicacion ubicacion = ViewBag.Ubicacion;
         <div>
+            @ubicacion.Zona; , @ubicacion.Ciudad;
         </div>
+    }
     </section>
     <section class="col-sm-8">
-        <h2>Equipo: @{
-            foreach(Usuario user in ViewBag.Usuario)
-            {
-                if(user.NombreDeUsuario == "ariel05")
-                {
-                    @user.Equipo;
-                }
-            }
-
-
+        <h2>Equipo:
+        @{
+            @Model.EquipoID;
         }</h2>
         <table class="table table-condensed">
-            @{ 
             <thead class="col-sm-12">
                 <tr>
                     <th>Lider</th>
@@ -47,11 +43,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                </tr>
+            @{
+                Equipo equipo = ViewBag.Equipo;
+                   <tr>
+                       <th>@equipo.NombreDeLider</th>
+                       <th>@equipo.Posicion</th>
+                       <th>@equipo.Puntos</th>
+                       <th>@equipo.GF</th>
+                       <th>@equipo.GC</th>
+                       <th>@equipo.Victorias</th>
+                       <th>@equipo.Empates</th>
+                       <th>@equipo.Perdidas</th>
+                   </tr>
+            }
             </tbody>
             <a href="@Url.Action("VerMiEquipo","Equipo", Model)">Ver equipo</a> 
-            }
         </table>
     </section>
     <section class="col-sm-8">
