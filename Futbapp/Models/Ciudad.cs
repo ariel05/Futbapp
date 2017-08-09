@@ -7,16 +7,16 @@ using System.Web;
 
 namespace Futbapp.Models
 {
-    [Table("Ubicacion")]
-    public class Ubicacion
+    [Table("Ciudad")]
+    public class Ciudad
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ZonaID { get; set; }
-        [ForeignKey("ZonaID")]
-        public Zona Zona { get; set; }
-        public List<Usuario> Usuario { get; set; }
-        public List<Sala> Sala { get; set; }
+        public string NombreDeCiudad { get; set; }
+        public int ProvinciaID { get; set; }
+        [ForeignKey("ProvinciaID")]
+        public Provincia Provincia { get; set; }
+        public List<Zona> Zona { get; set; }
     }
 }

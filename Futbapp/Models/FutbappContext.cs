@@ -20,6 +20,10 @@ namespace Futbapp.Models
         public DbSet<Equipo> Equipos { get; set; }
         public DbSet<Partido> Partidos { get; set; }
         public DbSet<Ubicacion> Ubicaciones { get; set; }
+        public DbSet<Sala> Salas { get; set; }
+        public DbSet<Provincia> Provincias { get; set; }
+        public DbSet<Ciudad> Ciudades { get; set; }
+        public DbSet<Zona> Zonas { get; set; }
 
     }
 }
