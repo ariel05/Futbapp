@@ -28,9 +28,15 @@ namespace Futbapp.Controllers
         public ActionResult CompletarRegistro()
         {
             FutbappContext FutbappDB = new FutbappContext();
-            List<Ubicacion> ubicacion = FutbappDB.Ubicaciones.OrderBy(a => a.Zona).ToList();
+            List<Ubicacion> ubicacion = FutbappDB.Ubicaciones.OrderBy(a => a.Id).ToList();
+            List<Zona> zona = FutbappDB.Zonas.OrderBy(z => z.Id).ToList();
+            List<Ciudad> ciudad = FutbappDB.Ciudades.OrderBy(c => c.Id).ToList();
+            List<Provincia> provincia = FutbappDB.Provincias.OrderBy(p => p.Id).ToList();
 
             ViewBag.Ubicacion = ubicacion;
+            ViewBag.Zona = zona;
+            ViewBag.Ciudad = ciudad;
+            ViewBag.Provincia = provincia;
 
             return View();
         }

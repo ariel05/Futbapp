@@ -1,6 +1,7 @@
 ﻿@using Futbapp.Models;
 @{ 
     Usuario usuario = (Usuario)Session["UsuarioLogeado"];
+    FutbappContext FutbappDB = new FutbappContext();
 }
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" type="text/css" href="~/Content/general.css">
-    @RenderSection("styles",required: false)
+    @RenderSection("styles", required: false)
 </head>
 
 <body class="row" data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -52,26 +53,26 @@
                             {
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@(usuario.NombreDeUsuario)<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="@Url.Action("MiPerfil","Usuario")">Mi Perfil</a></li>
+                                    <li><a href="@Url.Action("MiPerfil", "Usuario")">Mi Perfil</a></li>
                                     <li><a href=""  data-toggle="modal" data-target="#myEquipoModal">Crear Equipo</a></li>
                                     @{
                                         if (usuario != null)
                                         {
-                                            FutbappContext FutbappDB = new FutbappContext();
+                                            
                                             Equipo equipo = FutbappDB.Equipos.FirstOrDefault(e => e.NombreDeLider == usuario.NombreDeUsuario);
 
                                             if (equipo != null)
                                             {
                                                 <li><a href="" data-toggle="modal" data-target="#myCompaModal">Agegar Usuario Al equipo</a></li>
+                                                <li><a href="" data-toggle="modal" data-target="#myPartidoModal">Establecer Partido</a></li>
                                             }
-                                         }
-
                                         }
-                                    <li><a href="@Url.Action("CrearPartido","Usuario")">Establecer Partido</a></li>
-                                    <li><a href="@Url.Action("ListaDePartidos","Usuario")">Buscar Partido</a></li>
+
+                                    }
+                                    <li><a href="@Url.Action("ListaDePartidos", "Usuario")">Buscar Partido</a></li>
                                     <li><a href="@Url.Action("Logout", "Login")">Logout</a></li>
                                 </ul>
-                            }
+                                        }
                         }
                     </li>
                 </ul>
@@ -79,7 +80,7 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-        <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Login","Login")">
+        <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Login", "Login")">
             <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -108,7 +109,7 @@
             </div><!-- /.modal -->
         </form>
 
-    <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Crear","Equipo")">
+    <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Crear", "Equipo")">
         <div class="modal fade" tabindex="-1" role="dialog" id="myEquipoModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -132,7 +133,7 @@
         </div><!-- /.modal -->
     </form>
 
-    <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("AgregarMiembros","Equipo")">
+    <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("AgregarMiembros", "Equipo")">
         <div class="modal fade" tabindex="-1" role="dialog" id="myCompaModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -148,6 +149,47 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                        <input type="submit" class="btn btn-primary" value="Agregar">
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </form>
+
+ <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Crear", "Partido")">
+        <div class="modal fade" tabindex="-1" role="dialog" id="myPartidoModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">¡Crear Equipo!</h4>
+                    </div>
+                @{
+                    List<Zona> zona = FutbappDB.Zonas.OrderBy(a => a.Id).ToList();
+                    List<Sala> sala = FutbappDB.Salas.OrderBy(a => a.Id).ToList();
+                    string zon = "a";
+
+                        <div class="modal-body">
+                    @foreach (Zona zonas in zona)
+                    {
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <select name="Provincia" class="form-control provincia">
+                                        <option>Seleccione la Zona</option>
+                                            @if (zonas.NombreDeZona != zon)
+                                            {
+                                                <option>@zonas.NombreDeZona</option>
+                                                zon = zonas.NombreDeZona;
+                                            }
+                                    </select>
+                                </div>
+                            </div>
+                    }
+                        </div>
+                        
+                } 
+                <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                         <input type="submit" class="btn btn-primary" value="Agregar">
                     </div>

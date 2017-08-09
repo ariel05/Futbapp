@@ -20,7 +20,7 @@ namespace Futbapp.Models
         public int PartidosJugados { get; set; }
         public int Posicion { get; set; }
         public int UbicacionID { get; set; }
-        public int EquipoID { get; set; }
+        public String EquipoID { get; set; }
         [ForeignKey("UbicacionID")]
         public Ubicacion Ubicacion { get; set; }
         [ForeignKey("EquipoID")]

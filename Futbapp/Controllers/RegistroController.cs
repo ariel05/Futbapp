@@ -64,14 +64,14 @@ namespace Futbapp.Controllers
             ///Busco el id de la ubicacion que eligió el usuario y se la asigno al usuario
             ///
 
-            futbappDB.Entry(usuario).State = EntityState.Modified;
+/*            futbappDB.Entry(usuario).State = EntityState.Modified;
 
             ubicacion = futbappDB.Ubicaciones.FirstOrDefault(u => u.Provincia == Provincia &&
             u.Ciudad == Ciudad && u.Zona == Zona);
 
             var userUbicacion = futbappDB.Set<Ubicacion>().Include(p => p.Usuario).FirstOrDefault(u => u.Id == ubicacion.Id);
             userUbicacion.Usuario.Add(usuario);
-            futbappDB.SaveChanges();
+            futbappDB.SaveChanges();*/
 
             Session.Clear();
 
