@@ -58,7 +58,7 @@
                                     @{
                                         if (usuario != null)
                                         {
-                                            
+
                                             Equipo equipo = FutbappDB.Equipos.FirstOrDefault(e => e.NombreDeLider == usuario.NombreDeUsuario);
 
                                             if (equipo != null)
@@ -157,7 +157,7 @@
         </div><!-- /.modal -->
     </form>
 
- <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("Crear", "Partido")">
+ <form class="form-signin col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("IrACrearPartidos", "Partidos")">
         <div class="modal fade" tabindex="-1" role="dialog" id="myPartidoModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -167,7 +167,7 @@
                     </div>
                 @{
                     List<Sala> sala = FutbappDB.Salas.OrderBy(a => a.Id).ToList();
-                    string salon = "a";
+                    string salon = "a", guion = "-";
 
                     <div class="modal-body">
                         <div class="form-group">
@@ -180,7 +180,7 @@
                                         {
                                             Ubicacion ubicacion = FutbappDB.Ubicaciones.FirstOrDefault(u => u.Id == salas.Id);
                                             Zona Zona = FutbappDB.Zonas.FirstOrDefault(z => z.Id == ubicacion.Id);
-                                            <option>@salas.Nombre-(@Zona.NombreDeZona)</option>
+                                            <option>@salas.Nombre</option>@guion @Zona.NombreDeZona
                                             salon = salas.Nombre;
                                         }
                                     }

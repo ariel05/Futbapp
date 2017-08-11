@@ -1,0 +1,80 @@
+﻿@using Futbapp.Models
+@{
+    ViewBag.Title = "IrACrearPartidos";
+}
+
+<section class="seccionForm col-sm-12">
+    <div class="col-sm-offset-3 col-sm-6">
+        <h2 class="col-sm-offset-3 col-sm-6">Complete los datos para crear crear el encuentro</h2>
+
+    </div>
+    <form class="form-horizontal col-sm-offset-3 col-sm-6" method="post" action="@Url.Action("EstablecerPartido", "Partido")">
+@{
+    Sala sala = ViewBag.Sala;
+    Zona zona = ViewBag.Zona;
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="NombreZona" placeholder="@zona.NombreDeZona" readonly="readonly">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" name="NombreSala" placeholder="@sala.Nombre" readonly="readonly">
+                </div>
+            </div>
+
+        <div class="form-group">
+            <div class="col-sm-12">
+                <h2>Seleccione fecha y hora</h2>
+                <select class="form-control">
+                    @{
+                        for (int i = 1; i < 3; i++)
+                        {
+                            if (i == 1)
+                            {
+                                <option>Agosto</option>
+                            }
+                            else if (i == 2)
+                            {
+                                <option>Septiembre</option>
+                            }
+                        }
+                    }
+                </select>
+                <select class="form-control">
+                    @{
+                        for (int i = 1; i < 32; i++)
+                        {
+                            <option>@i</option>
+                        }
+                    }
+                </select>
+                <select class="form-control">
+                    <option></option>
+                    <option></option>
+                      @{  string PM = "PM", AM = "AM";
+                          for (int i = 10; i < 24; i++)
+                          {
+                            <option>@i @if (i < 12)
+                            { @AM }
+                            else
+                            { @PM }</option>
+                          }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="text" class="form-control" name="NombreDeEquipoRival" placeholder="Nombre de equipo rival" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input type="submit" class="btn btn-primary btn-large btn-block" value="¡Enviar solicitud!" />
+            </div>
+        </div>
+      }
+    </form>
+</section>
+

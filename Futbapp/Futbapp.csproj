@@ -221,11 +221,11 @@
     <Content Include="Views\UsuarioEntityFramework\Details.cshtml" />
     <Content Include="Views\UsuarioEntityFramework\Edit.cshtml" />
     <Content Include="Views\UsuarioEntityFramework\Index.cshtml" />
+    <Content Include="Views\Partidos\IrACrearPartidos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Equipo\" />
-    <Folder Include="Views\Partidos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
