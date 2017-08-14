@@ -20,7 +20,7 @@ namespace Futbapp.Models
         public int Victorias { get; set; }
         public int Empates { get; set; }
         public int Perdidas { get; set; }
-        public List<Partido> Partidos { get; set; }
+        public List<EquipoPartidos> Partidos { get; set; }
         public List<Usuario> Usuario { get; set; }
 
     }
